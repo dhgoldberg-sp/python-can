@@ -28,6 +28,7 @@ BACKENDS = {
     "cantact": ("can.interfaces.cantact", "CantactBus"),
     "gs_usb": ("can.interfaces.gs_usb", "GsUsbBus"),
     "nixnet": ("can.interfaces.nixnet", "NiXNETcanBus"),
+    "zmq": ("can.interfaces.zmq", "ZmqBus"),
 }
 
 BACKENDS.update(
