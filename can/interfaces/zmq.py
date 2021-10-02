@@ -28,7 +28,11 @@ class ZmqBus(BusABC):
         if not channel:
             raise TypeError("Must specify a host address:port.")
 
-        (tx_url, rx_url) = channel.split("+")
+        # (tx_url, rx_url) = channel.split("+")
+        tx_url = channel
+
+        (protocol, address, port) = channel.split(':')
+        rx_url = f'{protocol}:{address}:{int(port)+1}'
 
         ctx = zmq.Context.instance()
         self.pub = ctx.socket(zmq.PUB)
